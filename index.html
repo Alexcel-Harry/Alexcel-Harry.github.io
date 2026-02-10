@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yihao Sun | AI Engineering Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #666666;
+            --accent-color: #003366; /* Dark Blue link color */
+            --bg-color: #ffffff;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --max-width: 850px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 40px 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .availability {
+            font-weight: bold;
+            color: #d9534f; /* Slight red pop for availability */
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        /* Items */
+        .item {
+            margin-bottom: 12px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #000;
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: right;
+            min-width: 120px;
+        }
+
+        .item-details {
+            font-size: 0.9rem;
+            color: #444;
+            margin-top: 2px;
+        }
+        
+        /* Bullet Lists */
+        ul {
+            list-style-type: disc;
+            margin-left: 18px;
+            margin-top: 5px;
+        }
+
+        li {
+            font-size: 0.92rem;
+            margin-bottom: 3px;
+            color: #333;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 10px;
+            font-size: 0.92rem;
+            margin-bottom: 5px;
+        }
+        
+        .skill-category {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Buttons */
+        .action-bar {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .item-header {
+                flex-direction: column;
+            }
+            .item-date {
+                text-align: left;
+                margin-bottom: 4px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .container { box-shadow: none; max-width: 100%; padding: 0; margin: 0; }
+            .action-bar { display: none; }
+            a { text-decoration: none; color: #000; }
+            h2 { border-bottom: 1px solid #000; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="action-bar">
+            <a href="resume.pdf" class="btn" target="_blank">Download PDF Version</a>
+        </div>
+
+        <header>
+            <h1>Yihao Sun</h1>
+            <div class="contact-info">
+                <a href="mailto:yihaosun@andrew.cmu.edu">yihaosun@andrew.cmu.edu</a> | 
+                <a href="https://github.com/Alexcel-Harry" target="_blank">GitHub: Alexcel-Harry</a> | 
+                <a href="https://www.linkedin.com/in/yihao-sun-a82815293/" target="_blank">LinkedIn</a> | 
+                +1 (616) 227-9785
+            </div>
+            <div class="availability">
+                Availability: May 2026 – August 2026 (Applied Scientist / AI Engineering)
+            </div>
+        </header>
+
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Carnegie Mellon University</span>
+                    <span class="item-date">Exp. May 2027</span>
+                </div>
+                <div class="item-subtitle">MS in Mobile & IoT Engineering | Pittsburgh, PA</div>
+                <div class="item-details">
+                    <strong>GPA:</strong> 3.85/4.0 | <strong>Core Coursework:</strong> Generative AI, LLM Systems, Robotics Learning
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">University of Michigan</span>
+                    <span class="item-date">May 2025</span>
+                </div>
+                <div class="item-subtitle">BS in Engineering, Data Science (Minor in Math) | Ann Arbor, MI</div>
+                <div class="item-details">
+                    <strong>GPA:</strong> 3.86/4.0 | <strong>Honors:</strong> Dean's List, University Honor | <strong>Core:</strong> Distributed Systems, CV
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Shanghai Jiao Tong University</span>
+                    <span class="item-date">Aug 2025</span>
+                </div>
+                <div class="item-subtitle">B.Eng, Electrical & Computer Engineering | Shanghai, China</div>
+                <div class="item-details">
+                    <strong>GPA:</strong> 3.53/4.0 | <strong>Core:</strong> Computer Architecture, Data Structures
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-category">Languages</span>
+                <span>Python, C/C++, CUDA, Go, SQL, System Verilog, Java, R</span>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-category">Tools</span>
+                <span>PyTorch, TensorFlow Lite, Docker, Git, Linux, MuJoCo, CARLA, SUMO</span>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-category">Domains</span>
+                <span>Distributed Systems, Model Quantization, LLM Distillation/Fine-tuning, RL, Edge AI, Generative AI</span>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Research Experience</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">End-to-End Adaptive Smart Glasses for Caregiving</span>
+                    <span class="item-date">Oct 2025 – Present</span>
+                </div>
+                <div class="item-subtitle">Research Assistant | Carnegie Mellon University</div>
+                <ul>
+                    <li>Developing a privacy-first wearable assistant using edge VLM and Multi-Timescale Meta-Continual Learning to dynamically adapt sensor fusion strategies.</li>
+                    <li>Implementing a Dual Working Memory system with Reinforcement Learning to optimize intervention timing, balancing real-time constraints with long-term adaptation.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Part-Level Scene Understanding (KAF-Net)</span>
+                    <span class="item-date">May 2025 – Sept 2025</span>
+                </div>
+                <div class="item-subtitle">Core Contributor | SJTU | 
+                    <a href="https://github.com/PSGBOT/KAFNet_Pipeline" target="_blank">Project Link</a>
+                </div>
+                <div class="item-details">
+                    <em>Co-first Author, "KAF-Net: Towards Part-Informed Scene Graphs...", Under Revision (RA-L)</em>
+                </div>
+                <ul>
+                    <li>Constructed an automated pipeline fusing Semantic-SAM with Gemini 2.5 to annotate part-level relationships.</li>
+                    <li>Designed KAF-Net, a scene graph generation model utilizing Kinematic Affinity Fields for fine-grained robotic manipulation.</li>
+                    <li>Integrated KAF-Net with LLMs to generate executable action sequences for robotic planning.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">TeraSim: Generative Simulation for AV Safety</span>
+                    <span class="item-date">Mar 2024 – Apr 2025</span>
+                </div>
+                <div class="item-subtitle">Research Intern | UMich MCITY Lab | 
+                    <a href="https://arxiv.org/abs/2503.03629" target="_blank">Paper</a>
+                </div>
+                <ul>
+                    <li>Engineered a co-simulation plugin integrating SUMO and CARLA to inject dynamic roadblocks and agent misfeasance.</li>
+                    <li>Optimized OpenDrive maps for high-fidelity simulation, providing critical feedback for physical track improvements.</li>
+                    <li>Work serves as the technical foundation for <a href="https://www.saferdrive.ai/" target="_blank">SaferDrive.ai</a>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Selected Projects</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">No-Limit Texas Hold'em AI Agent (HPC & RL)</span>
+                    <span class="item-date">Jan 2026 – Present</span>
+                </div>
+                <div class="item-subtitle">
+                    <a href="https://github.com/Alexcel-Harry/poker_bot" target="_blank">GitHub Link</a>
+                </div>
+                <ul>
+                    <li>Developing a Deep Counterfactual Regret Minimization (Deep CFR) agent for 3-player No-Limit Hold'em.</li>
+                    <li>Engineered a high-throughput training pipeline with <strong>64-way parallelization</strong> and batched FP16 inference, reducing convergence time to &lt;8 hours.</li>
+                    <li>Designed an action abstraction layer to map continuous betting dynamics into discrete strategy bins.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Real-time Multiple Object Tracking on Edge</span>
+                    <span class="item-date">Sept 2025 – Dec 2025</span>
+                </div>
+                <div class="item-subtitle">Mobile Computing Course Project</div>
+                <ul>
+                    <li>Engineered a real-time tracking pipeline on Android (Pixel 7/9 Pro), utilizing on-device TPU acceleration for YOLO11 and ByteTrack.</li>
+                    <li>Implemented optical-flow-based prediction and adaptive frame dropping to ensure stable 30 FPS tracking.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Distributed Sharded Key-Value Store</span>
+                    <span class="item-date">Jan 2025 – Apr 2025</span>
+                </div>
+                <div class="item-subtitle">Distributed Systems Course Project (Go, Multi-Paxos)</div>
+                <ul>
+                    <li>Architected a scalable, Sharded Multi-Paxos storage system ensuring linearizable consistency and partition tolerance.</li>
+                    <li>Implemented a ShardMaster configuration service to dynamically rebalance shards during cluster scaling.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Impossible Distillation & LoRA Fine-Tuning</span>
+                    <span class="item-date">Sept 2024 – Dec 2024</span>
+                </div>
+                <div class="item-subtitle">ML Research Capstone</div>
+                <ul>
+                    <li>Reproduced the "Impossible Distillation" framework to generate synthetic paraphrase datasets from GPT-2.</li>
+                    <li>Integrated Low-Rank Adaptation (LoRA) with the distillation pipeline, achieving >99% parameter reduction.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
