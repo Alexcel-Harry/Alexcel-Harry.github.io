@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Yihao Sun</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="brand" href="index.html"><span class="brand-mark">YS</span><span>Yihao Sun</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="projects.html" aria-current="page">Projects</a>
+                <a href="fun.html">Fun Outcomes</a>
+                <a href="cv.pdf" target="_blank" rel="noopener">CV PDF</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="page-hero-inner">
+                <p class="eyebrow">Projects</p>
+                <h1>Technical projects and implementations</h1>
+                <p class="lead">
+                    Selected work from the updated CV, grouped as engineering artifacts rather than a single long resume list.
+                    The newest 2026 projects are surfaced first.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <div class="project-grid">
+                    <article class="project-card">
+                        <p class="tagline">Robotics Learning Course Project</p>
+                        <h3>Humanoid Robot Backflip via Reinforcement Learning</h3>
+                        <p class="meta">Jan 2026 - May 2026</p>
+                        <ul>
+                            <li>Developed a multi-stage PPO training pipeline in MuJoCo Humanoid-v5, decomposing the backflip into sequential skills to avoid local optima.</li>
+                            <li>Initialized the backflip policy with pretrained high-jump weights to retain vertical impulse while adapting toward backward rotation and landing stabilization.</li>
+                            <li>Used a gravity curriculum from 0.3g to 1.0g and phase-based dense rewards to reduce bouncing exploits and premature termination.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="tagline">Generative AI Course Project</p>
+                        <h3>RetFormer: Retrieval-Augmented Document Understanding</h3>
+                        <p class="meta">Jan 2026 - May 2026</p>
+                        <ul>
+                            <li>Designed RetFormer, a 23M-parameter bridge between a frozen ColQwen2 retriever and frozen Qwen-VL reader for scalable multi-page document QA.</li>
+                            <li>Compressed each retrieved document page into 32 evidence tokens using MaxSim-gated cross-attention.</li>
+                            <li>Achieved F1 0.241 versus 0.213 for Top-1 raw page retrieval on MMLongBench-Doc at less than half the median reader token cost.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="tagline">Large Language Model Systems Course Project</p>
+                        <h3>Parallelism and Optimizations for Mamba-2 Models</h3>
+                        <p class="meta">Jan 2026 - May 2026</p>
+                        <ul>
+                            <li>Designed a distributed parallelism framework for Mamba-2's Structured State Space Duality algorithm using tensor parallelism and SSM-adapted sequence parallelism.</li>
+                            <li>Implemented communication primitives that pass compact SSM hidden states between GPUs with sequence-length-independent communication cost.</li>
+                            <li>Contributed to a system that reduced per-GPU memory from 31.3 GB to 1.1 GB and extended maximum sequence length from 16K to 262K tokens.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="tagline">Mobile and Pervasive Computing Course Project</p>
+                        <h3>Real-time Multiple Object Tracking on Edge Hardware</h3>
+                        <p class="meta">Sept 2025 - Dec 2025</p>
+                        <ul>
+                            <li>Engineered a real-time tracking pipeline on Google Pixel 7/9 Pro smartphones using on-device TPU acceleration for YOLO11 and ByteTrack.</li>
+                            <li>Implemented optical-flow-based prediction, keyframe ratio optimization, and adaptive frame dropping to maintain smooth 30 FPS tracking.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="tagline">Machine Learning Research Experience Capstone</p>
+                        <h3>Impossible Distillation &amp; LoRA Fine-Tuning</h3>
+                        <p class="meta">Sept 2024 - Dec 2024</p>
+                        <ul>
+                            <li>Reproduced the Impossible Distillation framework to generate synthetic paraphrase datasets from GPT-2 with semantic and syntactic evaluation metrics.</li>
+                            <li>Integrated Low-Rank Adaptation, reducing trainable parameters by more than 99% while slightly improving paraphrase performance.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="tagline">Computer Architecture Capstone</p>
+                        <h3>3-Way Superscalar RISC-V Processor</h3>
+                        <p class="meta">May 2025 - Aug 2025</p>
+                        <ul>
+                            <li>Designed and optimized a high-performance 3-way superscalar RISC-V processor in System Verilog with a 5-stage pipeline and hazard handling.</li>
+                            <li>Implemented an advanced TAGE branch predictor with aging useful bits, achieving a 30% performance uplift compared to baseline predictors.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="tagline">Distributed Systems Course Project - Go, Paxos, Consensus</p>
+                        <h3>Distributed Sharded Key-Value Store Series</h3>
+                        <p class="meta">Jan 2025 - Apr 2025</p>
+                        <ul>
+                            <li>Architected a storage system evolving from Primary/Backup replication to a Sharded Multi-Paxos architecture with linearizable consistency.</li>
+                            <li>Implemented a Paxos consensus library, ShardMaster service, deterministic load balancing, log compaction, and concurrent RPC handling.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="tagline">Conversational AI Course Project</p>
+                        <h3>Fake News Detection System</h3>
+                        <p class="meta">Sep 2024 - Dec 2024</p>
+                        <ul>
+                            <li>Architected a Retrieval-Augmented Generation verification system that cross-references user queries against a curated database of credible sources.</li>
+                            <li>Built a backend pipeline to crawl, process, and index news articles for efficient semantic retrieval and real-time knowledge base updates.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card">
+                        <p class="tagline">Personal Research Project</p>
+                        <h3>No-Limit Texas Hold'em AI Agent</h3>
+                        <p class="meta">Jan 2026 - Present - <a class="text-link" href="https://github.com/Alexcel-Harry/poker_bot" target="_blank" rel="noopener">GitHub</a></p>
+                        <ul>
+                            <li>Developed a Deep Counterfactual Regret Minimization agent for 3-player No-Limit Hold'em with separate advantage and strategy networks.</li>
+                            <li>Engineered 64-way parallelized environment traversals and batched FP16 inference, reducing convergence time to less than 8 hours.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="section-inner">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Skills</p>
+                        <h2>Tools and foundations used across the work.</h2>
+                    </div>
+                    <p>Condensed from the updated CV.</p>
+                </div>
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <h3>Programming Languages</h3>
+                        <ul class="chips">
+                            <li>Python</li><li>C/C++</li><li>CUDA</li><li>SQL</li><li>R</li><li>Go</li><li>System Verilog</li><li>Java</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card">
+                        <h3>AI &amp; Simulation Tools</h3>
+                        <ul class="chips">
+                            <li>PyTorch</li><li>TensorFlow Lite</li><li>Scikit-learn</li><li>NumPy</li><li>Pandas</li><li>Matplotlib</li><li>stable baselines3</li><li>OpenCV</li><li>CARLA</li><li>SUMO</li><li>MuJoCo</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card">
+                        <h3>Systems &amp; Hardware</h3>
+                        <ul class="chips">
+                            <li>Git</li><li>Docker</li><li>Linux/Unix</li><li>Web Systems</li><li>Databases</li><li>RISC-V ISA</li><li>ARM ISA</li><li>Branch Prediction</li><li>Superscalar CPU Pipelines</li>
+                        </ul>
+                    </article>
+                    <article class="skill-card">
+                        <h3>Concepts &amp; Methodologies</h3>
+                        <ul class="chips">
+                            <li>Distributed Systems</li><li>Data Mining</li><li>Information Security</li><li>LLM Distillation</li><li>LLM Finetuning</li><li>Model Quantization</li><li>Reinforcement Learning</li><li>Robotics Learning</li><li>AI Infrastructure</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>Yihao Sun - Projects</span>
+            <a href="cv.pdf" target="_blank" rel="noopener">Download CV PDF</a>
+        </div>
+    </footer>
+</body>
+</html>

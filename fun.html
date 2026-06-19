@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Outcomes | Yihao Sun</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="brand" href="index.html"><span class="brand-mark">YS</span><span>Yihao Sun</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="projects.html">Projects</a>
+                <a href="fun.html" aria-current="page">Fun Outcomes</a>
+                <a href="cv.pdf" target="_blank" rel="noopener">CV PDF</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="page-hero dark">
+            <div class="page-hero-inner">
+                <p class="eyebrow">Fun Outcomes</p>
+                <h1>Not all runs are perfect, but some of them are really interesting</h1>
+                <p class="lead">
+                    Side notes from training agents: imperfect, funny, occasionally useful, and not meant to overshadow
+                    the research and project work.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Simulation Reel</p>
+                        <h2>Humanoid control clips from MuJoCo.</h2>
+                    </div>
+                    <p>
+                        Some runs are successful; others are simply funny or instructive.
+                    </p>
+                </div>
+                <div class="video-grid">
+                    <article class="video-card">
+                        <div class="video-frame">
+                            <video src="src/backflip_v2_axislocked_demo_g_minus_3p5.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Humanoid v5 low-gravity flip simulation"></video>
+                        </div>
+                        <div class="video-copy">
+                            <h3>Low-Gravity Flip</h3>
+                            <span class="video-meta">MuJoCo, g = 3.5</span>
+                            <p>Humanoid v5 flipping in a low-gravity environment. It is a flip, not quite a backflip, which is part of the charm.</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-frame">
+                            <video src="src/agent_A_v26_demo.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Humanoid high-jumping simulation under normal gravity"></video>
+                        </div>
+                        <div class="video-copy">
+                            <h3>High-Jump Agent</h3>
+                            <span class="video-meta">Normal gravity</span>
+                            <p>agent_A_v26 demo: a humanoid robot pushing for height under normal gravity.</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-frame">
+                            <video src="src/hopping_agent_funny_move.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Funny hopping humanoid simulation"></video>
+                        </div>
+                        <div class="video-copy">
+                            <h3>The Hopping Dancer</h3>
+                            <span class="video-meta">Normal gravity</span>
+                            <p>A high-jump objective that found a funny hopping gait instead, somewhere between locomotion and dancing.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="section-inner">
+                <div class="portrait-feature">
+                    <div class="portrait-copy">
+                        <p class="eyebrow">Me in the Eyes of AI</p>
+                        <h2>A small generated portrait.</h2>
+                        <p>
+                            A playful AI-made view my background and my works based on all of my chat history with it.
+                        </p>
+                    </div>
+                    <figure class="portrait-frame">
+                        <img src="src/yihao_pixel_room_portrait_v2.jpg" alt="AI-generated portrait of Yihao's research desk with visual references to robotics, AI infrastructure, simulation, and projects.">
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>Yihao Sun - Fun Outcomes</span>
+            <a href="cv.pdf" target="_blank" rel="noopener">Download CV PDF</a>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+            if (!prefersReducedMotion.matches) {
+                return;
+            }
+            document.querySelectorAll("video[autoplay]").forEach(function (video) {
+                video.removeAttribute("autoplay");
+                video.pause();
+            });
+        }());
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Yihao Sun</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="brand" href="index.html"><span class="brand-mark">YS</span><span>Yihao Sun</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html" aria-current="page">Research</a>
+                <a href="projects.html">Projects</a>
+                <a href="fun.html">Fun Outcomes</a>
+                <a href="cv.pdf" target="_blank" rel="noopener">CV PDF</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="page-hero-inner">
+                <p class="eyebrow">Research</p>
+                <h1>Publications and research experience</h1>
+                <p class="lead">
+                    My research work sits at the intersection of robotics, simulation, embodied perception, and edge AI systems.
+                    The publication entries list paper titles and authors from the provided PDFs, with acceptance information from
+                    the updated CV.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Publications</p>
+                        <h2>Selected publications.</h2>
+                    </div>
+                    <p>
+                        Author order and titles are taken from the provided paper PDFs; venue labels follow the current CV.
+                    </p>
+                </div>
+
+                <article class="paper-card">
+                    <div>
+                        <h3 class="paper-title">KAF-Net: Towards Part-Informed Scene Graphs for Fine-Grained Robotic Manipulation</h3>
+                        <p class="authors">
+                            Yulin Chen*, <strong>Yihao Sun*</strong>, Jingyu Gu, Ruitong An, Boyan Li, Youyi Bi
+                        </p>
+                        <p class="meta">* Equal contribution.</p>
+                        <span class="venue">IDETC/CIE 2026</span>
+                        <div class="paper-links">
+                            <a href="https://github.com/PSGBOT/KAFNet_Pipeline" target="_blank" rel="noopener">Project repository</a>
+                        </div>
+                    </div>
+                    <aside>
+                        <p class="meta">Part-level scene understanding, scene graph generation, kinematic affinity fields, robotic manipulation.</p>
+                    </aside>
+                </article>
+
+                <article class="paper-card">
+                    <div>
+                        <h3 class="paper-title">TeraSim: Uncovering Unknown Unsafe Events for Autonomous Vehicles through Generative Simulation</h3>
+                        <p class="authors">
+                            Haowei Sun*, Xintao Yan*, Zhijie Qiao*, Haojie Zhu*, <strong>Yihao Sun</strong>, Jiawei Wang,
+                            Shengyin Shen, Darian Hogue, Rajanikant Ananta, Derek Johnson, Greg Stevens, Greg McGuire,
+                            Yifan Wei, Wei Zheng, Yong Sun, Yasuo Fukai, Henry X. Liu
+                        </p>
+                        <p class="meta">* Equal contribution.</p>
+                        <span class="venue">SAD Workshop at CVPR 2026</span>
+                        <div class="paper-links">
+                            <a href="https://arxiv.org/abs/2503.03629" target="_blank" rel="noopener">arXiv</a>
+                            <a href="https://www.saferdrive.ai/" target="_blank" rel="noopener">SaferDrive.ai</a>
+                        </div>
+                    </div>
+                    <aside>
+                        <p class="meta">Generative simulation, autonomous vehicle safety, SUMO, CARLA, safety-critical event generation.</p>
+                    </aside>
+                </article>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="section-inner">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Research Experience</p>
+                        <h2>Professional research summaries.</h2>
+                    </div>
+                    <p>
+                        These entries keep the CV facts, but present them as research directions rather than a resume list.
+                    </p>
+                </div>
+                <div class="research-list">
+                    <article class="research-card">
+                        <div>
+                            <p class="meta">Oct 2025 - Present<br>Carnegie Mellon University</p>
+                        </div>
+                        <div>
+                            <h3>End-to-End Adaptive Smart Glasses for Caregiving</h3>
+                            <p>Privacy-first wearable AI research focused on adaptive assistance under real-world edge constraints.</p>
+                            <ul>
+                                <li>Developing an edge Vision-Language Model system with Multi-Timescale Meta-Continual Learning for adaptive sensor fusion across chronic monitoring and acute injury modes.</li>
+                                <li>Implementing a Dual Working Memory system with Reinforcement Learning to personalize intervention timing while balancing utility and user disruption.</li>
+                                <li>Designing an edge-only architecture to preserve privacy while staying responsive in time-sensitive caregiving scenarios.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="research-card">
+                        <div>
+                            <p class="meta">May 2025 - Sept 2025<br>Open-source research project</p>
+                        </div>
+                        <div>
+                            <h3>Part-Level Scene Understanding with LLMs</h3>
+                            <p>Fine-grained part-level perception for robotic manipulation, accepted at IDETC/CIE 2026.</p>
+                            <ul>
+                                <li>Constructed a Part-Segmentation-Relation dataset using Semantic-SAM and Gemini 2.5 for kinematic annotation of part functionalities and relationships.</li>
+                                <li>Designed KAF-Net to predict part relationships using Kinematic Affinity Fields and Multi-Channel Masks.</li>
+                                <li>Integrated KAF-Net with LLM planning to generate executable part-aware action sequences.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="research-card">
+                        <div>
+                            <p class="meta">Mar 2024 - Apr 2025<br>UMich MCITY Lab</p>
+                        </div>
+                        <div>
+                            <h3>TeraSim: Generative Simulation for Autonomous Vehicle Safety</h3>
+                            <p>Generative traffic simulation work accepted at the SAD Workshop at CVPR 2026.</p>
+                            <ul>
+                                <li>Engineered a SUMO-CARLA co-simulation plugin to inject dynamic roadblocks, vulnerable road users, and agent misfeasance into AV testing loops.</li>
+                                <li>Converted and refined OpenDrive maps for high-fidelity MCITY test environment simulation.</li>
+                                <li>Contributed to research that serves as the technical foundation for SaferDrive.ai.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="research-card">
+                        <div>
+                            <p class="meta">Mar 2022 - Mar 2023<br>Shanghai Jiao Tong University</p>
+                        </div>
+                        <div>
+                            <h3>Magnetic Wristband Gesture Recognition</h3>
+                            <p>Undergraduate research on robust full-finger gesture recognition using magnetic sensing.</p>
+                            <ul>
+                                <li>Optimized hardware configuration and signal-processing pipelines to achieve greater than 80% classification accuracy with high noise resistance.</li>
+                                <li>Developed filtering and Euclidean-space geometric center analysis methods to isolate gesture signals across users and environments.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>Yihao Sun - Research</span>
+            <a href="cv.pdf" target="_blank" rel="noopener">Download CV PDF</a>
+        </div>
+    </footer>
+</body>
+</html>
