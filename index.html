@@ -3,384 +3,1269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yihao Sun | AI Engineering Portfolio</title>
+    <title>Yihao Sun | AI Infrastructure &amp; Robotics Portfolio</title>
     <style>
         :root {
-            --primary-color: #000000;
-            --secondary-color: #666666;
-            --accent-color: #003366; /* Dark Blue link color */
-            --bg-color: #ffffff;
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --max-width: 850px;
+            --bg: #f4f7f2;
+            --paper: #ffffff;
+            --paper-soft: #eef4ee;
+            --ink: #111b17;
+            --ink-soft: #24332d;
+            --muted: #5d6962;
+            --line: #d8e0d7;
+            --teal: #00796b;
+            --teal-dark: #005b51;
+            --amber: #c87400;
+            --coral: #b95139;
+            --violet: #5b5a8e;
+            --shadow: 0 18px 48px rgba(17, 27, 23, 0.12);
+            --radius: 8px;
+            --max: 1180px;
+            --font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: var(--font-main);
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.5;
-            padding: 20px;
+            margin: 0;
+            font-family: var(--font);
+            color: var(--ink);
+            background:
+                linear-gradient(rgba(17, 27, 23, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(17, 27, 23, 0.04) 1px, transparent 1px),
+                var(--bg);
+            background-size: 36px 36px;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: var(--max-width);
+        body::selection {
+            color: #ffffff;
+            background: var(--teal-dark);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 20;
+            transform: translateY(-160%);
+            padding: 10px 14px;
+            color: #ffffff;
+            background: var(--ink);
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(216, 224, 215, 0.86);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(14px);
+        }
+
+        .nav-inner {
+            max-width: var(--max);
             margin: 0 auto;
-            background: var(--bg-color);
-            padding: 40px 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 4px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-        /* Header */
-        header {
-            text-align: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-width: max-content;
+            color: var(--ink);
+            font-weight: 800;
+            text-decoration: none;
         }
 
-        header h1 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 5px;
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            color: #ffffff;
+            background: var(--ink);
+            border-radius: var(--radius);
+            box-shadow: 0 8px 18px rgba(17, 27, 23, 0.18);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-links a {
+            padding: 8px 12px;
+            border-radius: var(--radius);
+            color: var(--muted);
+            font-size: 0.94rem;
+            font-weight: 650;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 180ms ease, background 180ms ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--ink);
+            background: var(--paper-soft);
+            outline: none;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 74svh;
+            overflow: hidden;
+            color: #ffffff;
+            background: #0e1714;
+            isolation: isolate;
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.42;
+            filter: saturate(0.92) contrast(1.08);
+            z-index: -3;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(14, 23, 20, 0.92), rgba(14, 23, 20, 0.68) 54%, rgba(14, 23, 20, 0.28)),
+                linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: auto, 52px 52px, 52px 52px;
+            z-index: -2;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 42%;
+            background: linear-gradient(180deg, transparent, rgba(14, 23, 20, 0.9));
+            z-index: -1;
+        }
+
+        .hero-inner {
+            max-width: var(--max);
+            min-height: 74svh;
+            margin: 0 auto;
+            padding: 96px 24px 52px;
+            display: grid;
+            align-content: center;
+            gap: 28px;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: #bfe7dd;
+            font-size: 0.92rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .contact-info {
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            max-width: 760px;
+            font-size: 4.2rem;
+            line-height: 0.98;
+        }
+
+        .lead {
+            max-width: 760px;
+            margin-bottom: 28px;
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 1.18rem;
+        }
+
+        .hero-actions,
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 11px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            border-radius: var(--radius);
+            color: #ffffff;
+            font-weight: 750;
+            text-decoration: none;
+            transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.12);
+            outline: none;
+        }
+
+        .button.primary {
+            border-color: var(--teal);
+            background: var(--teal);
+            box-shadow: 0 18px 34px rgba(0, 121, 107, 0.25);
+        }
+
+        .button.primary:hover,
+        .button.primary:focus-visible {
+            background: var(--teal-dark);
+        }
+
+        .contact-row {
+            max-width: 850px;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.96rem;
+        }
+
+        .contact-row a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+        }
+
+        .contact-row a:hover,
+        .contact-row a:focus-visible {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+            outline: none;
+        }
+
+        .hero-facts {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 980px;
+        }
+
+        .fact {
+            min-height: 96px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .fact strong {
+            display: block;
+            color: #ffffff;
+            font-size: 1.02rem;
+        }
+
+        .fact span {
+            display: block;
+            margin-top: 4px;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.86rem;
+        }
+
+        main {
+            overflow: hidden;
+        }
+
+        .section {
+            padding: 76px 24px;
+        }
+
+        .section.light {
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .section.deep {
+            color: #ffffff;
+            background: var(--ink);
+        }
+
+        .inner {
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: minmax(0, 0.82fr) minmax(260px, 0.48fr);
+            gap: 36px;
+            align-items: end;
+            margin-bottom: 32px;
+        }
+
+        .section-head h2 {
+            margin-bottom: 10px;
+            font-size: 2.25rem;
+            line-height: 1.12;
+        }
+
+        .section-head p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .deep .section-head p,
+        .deep .eyebrow {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .profile-panel,
+        .info-panel {
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--paper);
+            box-shadow: 0 14px 36px rgba(17, 27, 23, 0.08);
+        }
+
+        .profile-panel p:last-child,
+        .info-panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-panel p {
+            color: var(--ink-soft);
+            font-size: 1.04rem;
+        }
+
+        .info-list {
+            display: grid;
+            gap: 12px;
+            margin: 0;
+        }
+
+        .info-list div {
+            display: grid;
+            gap: 3px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .info-list div:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .info-list dt {
+            color: var(--muted);
+            font-size: 0.84rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .info-list dd {
+            margin: 0;
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+            transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+        }
+
+        .video-card:hover,
+        .video-card:focus-within {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.34);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .video-frame {
+            aspect-ratio: 1 / 1;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                #07100d;
+            background-size: 28px 28px;
+        }
+
+        .video-frame video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .video-copy {
+            padding: 18px;
+        }
+
+        .video-copy h3 {
+            margin-bottom: 8px;
+            font-size: 1.08rem;
+        }
+
+        .video-meta {
+            display: inline-flex;
+            margin-bottom: 12px;
+            padding: 5px 8px;
+            border-radius: 999px;
+            color: #101917;
+            background: #bfe7dd;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .video-copy p {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.72);
             font-size: 0.95rem;
-            color: var(--secondary-color);
+        }
+
+        .timeline {
+            display: grid;
+            gap: 16px;
+        }
+
+        .record {
+            display: grid;
+            grid-template-columns: 230px minmax(0, 1fr);
+            gap: 24px;
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--paper);
+            box-shadow: 0 12px 30px rgba(17, 27, 23, 0.06);
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .record:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .record time,
+        .record .date {
+            color: var(--teal-dark);
+            font-weight: 800;
+        }
+
+        .record h3 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            line-height: 1.28;
+        }
+
+        .record .place {
+            margin-bottom: 12px;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .record ul,
+        .project-card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .record li,
+        .project-card li {
             margin-bottom: 8px;
         }
 
-        .contact-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
+        .record li:last-child,
+        .project-card li:last-child {
+            margin-bottom: 0;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .record a,
+        .project-card a {
+            color: var(--teal-dark);
+            font-weight: 800;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
         }
 
-        .availability {
-            font-weight: bold;
-            color: #d9534f; /* Slight red pop for availability */
-            font-size: 0.95rem;
-            margin-top: 5px;
-        }
-
-        /* Sections */
-        section {
-            margin-bottom: 25px;
-        }
-
-        h2 {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            margin-top: 10px;
-        }
-
-        /* Items */
-        .item {
-            margin-bottom: 12px;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-        }
-
-        .item-title {
-            font-weight: bold;
-            font-size: 1rem;
-            color: #000;
-        }
-
-        .item-subtitle {
-            font-style: italic;
-            color: var(--secondary-color);
-            font-size: 0.95rem;
-        }
-
-        .item-date {
-            font-size: 0.9rem;
-            color: #666;
-            text-align: right;
-            min-width: 120px;
-        }
-
-        .item-details {
-            font-size: 0.9rem;
-            color: #444;
-            margin-top: 2px;
-        }
-        
-        /* Bullet Lists */
-        ul {
-            list-style-type: disc;
-            margin-left: 18px;
-            margin-top: 5px;
-        }
-
-        li {
-            font-size: 0.92rem;
-            margin-bottom: 3px;
-            color: #333;
-        }
-
-        /* Skills Section */
-        .skills-grid {
+        .education-grid,
+        .skills-grid,
+        .project-grid {
             display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 10px;
+            gap: 18px;
+        }
+
+        .education-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .edu-card,
+        .skill-group,
+        .project-card {
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--paper);
+            box-shadow: 0 12px 30px rgba(17, 27, 23, 0.06);
+        }
+
+        .edu-card h3,
+        .skill-group h3,
+        .project-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .edu-card p,
+        .project-card p {
+            margin-bottom: 10px;
+            color: var(--muted);
+        }
+
+        .edu-meta {
+            color: var(--ink-soft);
             font-size: 0.92rem;
-            margin-bottom: 5px;
-        }
-        
-        .skill-category {
-            font-weight: bold;
-            color: var(--primary-color);
+            font-weight: 700;
         }
 
-        /* Buttons */
-        .action-bar {
-            text-align: right;
-            margin-bottom: 20px;
+        .honors {
+            margin-top: 18px;
+            padding: 18px 20px;
+            border-left: 4px solid var(--amber);
+            border-radius: var(--radius);
+            background: #fff7e8;
+            color: #3c2a10;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
+        .skills-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .chips li {
+            padding: 7px 10px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--ink-soft);
+            background: var(--paper-soft);
             font-size: 0.9rem;
-            transition: background 0.3s;
+            font-weight: 650;
         }
 
-        .btn:hover {
-            background-color: var(--accent-color);
+        .project-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 5px;
+            background: var(--teal);
+        }
+
+        .project-card:nth-child(2)::before,
+        .project-card:nth-child(5)::before {
+            background: var(--coral);
+        }
+
+        .project-card:nth-child(3)::before,
+        .project-card:nth-child(6)::before {
+            background: var(--violet);
+        }
+
+        .tagline {
+            display: inline-flex;
+            margin-bottom: 12px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            padding: 34px 24px 46px;
+            color: rgba(255, 255, 255, 0.72);
+            background: var(--ink);
+        }
+
+        .footer-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer a {
+            color: #ffffff;
+            font-weight: 750;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+        }
+
+        .animate-in {
+            animation: rise 640ms ease both;
+        }
+
+        .section:nth-of-type(2) .animate-in {
+            animation-delay: 80ms;
+        }
+
+        .section:nth-of-type(3) .animate-in {
+            animation-delay: 130ms;
+        }
+
+        .section:nth-of-type(4) .animate-in {
+            animation-delay: 180ms;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
             }
-            .item-header {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 920px) {
+            .hero-facts,
+            .video-grid,
+            .education-grid,
+            .skills-grid,
+            .project-grid,
+            .profile-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-head {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .record {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .nav-inner {
+                align-items: flex-start;
                 flex-direction: column;
             }
-            .item-date {
-                text-align: left;
-                margin-bottom: 4px;
+
+            .nav-links {
+                justify-content: flex-start;
+                width: 100%;
+                padding-bottom: 2px;
             }
-            .skills-grid {
+
+            .hero,
+            .hero-inner {
+                min-height: 76svh;
+            }
+
+            .hero-inner {
+                padding-top: 64px;
+            }
+
+            h1 {
+                font-size: 2.85rem;
+            }
+
+            .lead {
+                font-size: 1.04rem;
+            }
+
+            .hero-facts,
+            .video-grid,
+            .education-grid,
+            .skills-grid,
+            .project-grid,
+            .profile-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 56px 18px;
+            }
+
+            .section-head h2 {
+                font-size: 1.85rem;
+            }
+
+            .profile-panel,
+            .info-panel,
+            .record,
+            .edu-card,
+            .skill-group,
+            .project-card {
+                padding: 18px;
             }
         }
 
-        /* Print Styles */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 1ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 1ms !important;
+            }
+        }
+
         @media print {
-            body { background: #fff; padding: 0; }
-            .container { box-shadow: none; max-width: 100%; padding: 0; margin: 0; }
-            .action-bar { display: none; }
-            a { text-decoration: none; color: #000; }
-            h2 { border-bottom: 1px solid #000; }
+            html {
+                scroll-behavior: auto;
+            }
+
+            body {
+                background: #ffffff;
+                color: #000000;
+            }
+
+            .topbar,
+            .hero-video,
+            .video-frame,
+            .footer,
+            .skip-link {
+                display: none;
+            }
+
+            .hero,
+            .section,
+            .section.deep {
+                min-height: auto;
+                padding: 18px 0;
+                color: #000000;
+                background: #ffffff;
+            }
+
+            .hero-inner,
+            .inner {
+                max-width: none;
+                min-height: auto;
+                padding: 0;
+            }
+
+            .button,
+            .fact,
+            .profile-panel,
+            .info-panel,
+            .record,
+            .edu-card,
+            .skill-group,
+            .project-card,
+            .video-card {
+                box-shadow: none;
+                border-color: #cccccc;
+                background: #ffffff;
+                color: #000000;
+            }
         }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="container">
-        <div class="action-bar">
-            <a href="cv.pdf" class="btn" target="_blank">Download PDF Version</a>
+    <nav class="topbar" aria-label="Primary navigation">
+        <div class="nav-inner">
+            <a class="brand" href="#top" aria-label="Yihao Sun home">
+                <span class="brand-mark">YS</span>
+                <span>Yihao Sun</span>
+            </a>
+            <div class="nav-links">
+                <a href="#reel">Simulation Reel</a>
+                <a href="#research">Research</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="cv.pdf" target="_blank" rel="noopener">CV PDF</a>
+            </div>
         </div>
+    </nav>
 
-        <header>
-            <h1>Yihao Sun</h1>
-            <div class="contact-info">
-                <a href="mailto:yihaosun@andrew.cmu.edu">yihaosun@andrew.cmu.edu</a> | 
-                <a href="https://github.com/Alexcel-Harry" target="_blank">GitHub: Alexcel-Harry</a> | 
-                <a href="https://www.linkedin.com/in/yihao-sun-a82815293/" target="_blank">LinkedIn</a> | 
-                +1 (616) 227-9785
-            </div>
-            <div class="availability">
-                Availability: May 2026 – August 2026 (Applied Scientist / AI Engineering)
-            </div>
-        </header>
-
-        <section id="education">
-            <h2>Education</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Carnegie Mellon University</span>
-                    <span class="item-date">Exp. May 2027</span>
-                </div>
-                <div class="item-subtitle">MS in Mobile & IoT Engineering | Pittsburgh, PA</div>
-                <div class="item-details">
-                    <strong>GPA:</strong> 3.85/4.0 | <strong>Core Coursework:</strong> Generative AI, LLM Systems, Robotics Learning
+    <header class="hero" id="top">
+        <video class="hero-video" src="src/agent_A_v26_demo.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+        <div class="hero-inner">
+            <div class="animate-in">
+                <p class="eyebrow">AI Infrastructure / AI Engineering Internship Candidate</p>
+                <h1>Yihao Sun</h1>
+                <p class="lead">
+                    Graduate student at Carnegie Mellon University building end-to-end AI systems across edge deployment,
+                    simulation platforms, robotics learning, and performance-critical training pipelines.
+                </p>
+                <div class="hero-actions" aria-label="Primary actions">
+                    <a class="button primary" href="cv.pdf" target="_blank" rel="noopener">Open CV PDF</a>
+                    <a class="button" href="mailto:yihaosun@andrew.cmu.edu">Email Yihao</a>
+                    <a class="button" href="#reel">Watch Simulations</a>
                 </div>
             </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">University of Michigan</span>
-                    <span class="item-date">May 2025</span>
+            <div class="hero-facts animate-in" aria-label="Portfolio highlights">
+                <div class="fact">
+                    <strong>Carnegie Mellon</strong>
+                    <span>MS in Mobile &amp; Internet of Things Engineering, anticipated May 2027</span>
                 </div>
-                <div class="item-subtitle">BS in Engineering, Data Science (Minor in Math) | Ann Arbor, MI</div>
-                <div class="item-details">
-                    <strong>GPA:</strong> 3.86/4.0 | <strong>Honors:</strong> Dean's List, University Honor | <strong>Core:</strong> Distributed Systems, CV
+                <div class="fact">
+                    <strong>Availability</strong>
+                    <span>May 2026 - August 2026 for AI infrastructure, AI engineering, or applied research</span>
+                </div>
+                <div class="fact">
+                    <strong>Research Focus</strong>
+                    <span>Edge VLMs, generative simulation, scene graphs, reinforcement learning</span>
+                </div>
+                <div class="fact">
+                    <strong>Systems Stack</strong>
+                    <span>Python, C/C++, CUDA, Go, Docker, Linux, MuJoCo, CARLA, SUMO</span>
                 </div>
             </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Shanghai Jiao Tong University</span>
-                    <span class="item-date">Aug 2025</span>
+            <div class="contact-row animate-in" aria-label="Contact information">
+                <a href="mailto:yihaosun@andrew.cmu.edu">yihaosun@andrew.cmu.edu</a>
+                <span>+1 (616) 227-9785</span>
+                <span>+86 13916963098</span>
+                <a href="https://github.com/Alexcel-Harry" target="_blank" rel="noopener">GitHub: Alexcel-Harry</a>
+                <a href="https://www.linkedin.com/in/yihao-sun-a82815293/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="section light" id="profile">
+            <div class="inner animate-in">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Profile</p>
+                        <h2>Machine learning depth with systems instincts.</h2>
+                    </div>
+                    <p>
+                        The page below keeps the CV facts intact while giving the robotics and simulation work room to move.
+                    </p>
                 </div>
-                <div class="item-subtitle">B.Eng, Electrical & Computer Engineering | Shanghai, China</div>
-                <div class="item-details">
-                    <strong>GPA:</strong> 3.53/4.0 | <strong>Core:</strong> Computer Architecture, Data Structures
+                <div class="profile-grid">
+                    <article class="profile-panel">
+                        <p>
+                            A graduate student at Carnegie Mellon University with strong foundations in machine learning and systems.
+                            Experienced in building, integrating, and evaluating end-to-end AI systems under real-world constraints,
+                            including edge deployment, simulation platforms, and performance-critical training pipelines.
+                        </p>
+                        <p>
+                            Seeking an AI infrastructure, AI engineering, or applied research internship focused on scalable and
+                            reliable AI systems.
+                        </p>
+                    </article>
+                    <aside class="info-panel" aria-label="Current recruiting details">
+                        <dl class="info-list">
+                            <div>
+                                <dt>Current degree</dt>
+                                <dd>MS, Mobile &amp; Internet of Things Engineering at Carnegie Mellon University</dd>
+                            </div>
+                            <div>
+                                <dt>GPA</dt>
+                                <dd>CMU 3.85/4.0, University of Michigan 3.86/4.0, SJTU 3.53/4.0</dd>
+                            </div>
+                            <div>
+                                <dt>Languages</dt>
+                                <dd>English: Native/Bilingual Proficiency, TOEFL 112/120; Chinese: Native</dd>
+                            </div>
+                        </dl>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section deep" id="reel">
+            <div class="inner animate-in">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Simulation Reel</p>
+                        <h2>Fun robot runs from the lab notebook.</h2>
+                    </div>
+                    <p>
+                        Not every learning run ends as planned. These MuJoCo clips are interesting, funny, or surprisingly graceful
+                        moments from humanoid control experiments.
+                    </p>
+                </div>
+                <div class="video-grid">
+                    <article class="video-card">
+                        <div class="video-frame">
+                            <video src="src/backflip_v2_axislocked_demo_g_minus_3p5.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Humanoid v5 low-gravity flip simulation"></video>
+                        </div>
+                        <div class="video-copy">
+                            <h3>Low-Gravity Flip</h3>
+                            <span class="video-meta">MuJoCo, g = 3.5</span>
+                            <p>Humanoid v5 flipping in a low-gravity environment. It is a flip, not quite a backflip, which is part of the charm.</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-frame">
+                            <video src="src/agent_A_v26_demo.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Humanoid high-jumping simulation under normal gravity"></video>
+                        </div>
+                        <div class="video-copy">
+                            <h3>High-Jump Agent</h3>
+                            <span class="video-meta">Normal gravity</span>
+                            <p>agent_A_v26 demo: a humanoid robot pushing for height under normal gravity.</p>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="video-frame">
+                            <video src="src/hopping_agent_funny_move.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Funny hopping humanoid simulation"></video>
+                        </div>
+                        <div class="video-copy">
+                            <h3>The Hopping Dancer</h3>
+                            <span class="video-meta">Normal gravity</span>
+                            <p>A high-jump objective that found a funny hopping gait instead, somewhere between locomotion and dancing.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <span class="skill-category">Languages</span>
-                <span>Python, C/C++, CUDA, Go, SQL, System Verilog, Java, R</span>
-            </div>
-            <div class="skills-grid">
-                <span class="skill-category">Tools</span>
-                <span>PyTorch, TensorFlow Lite, Docker, Git, Linux, MuJoCo, CARLA, SUMO</span>
-            </div>
-            <div class="skills-grid">
-                <span class="skill-category">Domains</span>
-                <span>Distributed Systems, Model Quantization, LLM Distillation/Fine-tuning, RL, Edge AI, Generative AI</span>
-            </div>
-        </section>
-
-        <section id="research">
-            <h2>Research Experience</h2>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">End-to-End Adaptive Smart Glasses for Caregiving</span>
-                    <span class="item-date">Oct 2025 – Present</span>
+        <section class="section" id="education">
+            <div class="inner animate-in">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Education</p>
+                        <h2>Training across AI, data science, ECE, and systems.</h2>
+                    </div>
+                    <p>
+                        Coursework noted in the CV includes computer vision, conversational AI, databases, distributed systems,
+                        mobile and pervasive computing, generative AI, LLM systems, and robotics learning.
+                    </p>
                 </div>
-                <div class="item-subtitle">Research Assistant | Carnegie Mellon University</div>
-                <ul>
-                    <li>Developing a privacy-first wearable assistant using edge VLM and Multi-Timescale Meta-Continual Learning to dynamically adapt sensor fusion strategies.</li>
-                    <li>Implementing a Dual Working Memory system with Reinforcement Learning to optimize intervention timing, balancing real-time constraints with long-term adaptation.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Part-Level Scene Understanding (KAF-Net)</span>
-                    <span class="item-date">May 2025 – Sept 2025</span>
+                <div class="education-grid">
+                    <article class="edu-card">
+                        <h3>Carnegie Mellon University</h3>
+                        <p>MS in Mobile &amp; Internet of Things Engineering</p>
+                        <div class="edu-meta">Pittsburgh, PA<br>Anticipated May 2027<br>GPA: 3.85/4.0</div>
+                    </article>
+                    <article class="edu-card">
+                        <h3>University of Michigan</h3>
+                        <p>BS in Engineering, Major in Data Science, Minor in Mathematics</p>
+                        <div class="edu-meta">Ann Arbor, MI<br>Aug 2023 - May 2025<br>GPA: 3.86/4.0</div>
+                    </article>
+                    <article class="edu-card">
+                        <h3>Shanghai Jiao Tong University</h3>
+                        <p>BEng in Electrical and Computer Engineering, Minor in Computer Science</p>
+                        <div class="edu-meta">Shanghai, China<br>Sep 2021 - Aug 2025<br>GPA: 3.53/4.0</div>
+                    </article>
                 </div>
-                <div class="item-subtitle">Core Contributor | SJTU | 
-                    <a href="https://github.com/PSGBOT/KAFNet_Pipeline" target="_blank">Project Link</a>
+                <div class="honors">
+                    <strong>Honors &amp; Awards:</strong> Dean's List (2023, 2024), University Honor (2023, 2024, 2025).
                 </div>
-                <div class="item-details">
-                    <em>Co-first Author, "KAF-Net: Towards Part-Informed Scene Graphs...", Under Revision (RA-L)</em>
-                </div>
-                <ul>
-                    <li>Constructed an automated pipeline fusing Semantic-SAM with Gemini 2.5 to annotate part-level relationships.</li>
-                    <li>Designed KAF-Net, a scene graph generation model utilizing Kinematic Affinity Fields for fine-grained robotic manipulation.</li>
-                    <li>Integrated KAF-Net with LLMs to generate executable action sequences for robotic planning.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">TeraSim: Generative Simulation for AV Safety</span>
-                    <span class="item-date">Mar 2024 – Apr 2025</span>
-                </div>
-                <div class="item-subtitle">Research Intern | UMich MCITY Lab | 
-                    <a href="https://arxiv.org/abs/2503.03629" target="_blank">Paper</a>
-                </div>
-                <ul>
-                    <li>Engineered a co-simulation plugin integrating SUMO and CARLA to inject dynamic roadblocks and agent misfeasance.</li>
-                    <li>Optimized OpenDrive maps for high-fidelity simulation, providing critical feedback for physical track improvements.</li>
-                    <li>Work serves as the technical foundation for <a href="https://www.saferdrive.ai/" target="_blank">SaferDrive.ai</a>.</li>
-                </ul>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Selected Projects</h2>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">No-Limit Texas Hold'em AI Agent (HPC & RL)</span>
-                    <span class="item-date">Jan 2026 – Present</span>
+        <section class="section light" id="research">
+            <div class="inner animate-in">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Research &amp; Publications</p>
+                        <h2>From privacy-first wearables to generative simulation.</h2>
+                    </div>
+                    <p>
+                        Research entries follow the CV, with publication status stated exactly at the level currently provided there.
+                    </p>
                 </div>
-                <div class="item-subtitle">
-                    <a href="https://github.com/Alexcel-Harry/poker_bot" target="_blank">GitHub Link</a>
+                <div class="timeline">
+                    <article class="record">
+                        <div>
+                            <div class="date">Oct 2025 - Present</div>
+                            <p>Early-staged</p>
+                        </div>
+                        <div>
+                            <h3>End-to-End Adaptive Smart Glasses for Caregiving</h3>
+                            <p class="place">Carnegie Mellon University - Privacy-First Wearable AI Research</p>
+                            <ul>
+                                <li>Developing a privacy-first wearable assistant using an edge Vision-Language Model and Multi-Timescale Meta-Continual Learning to adapt sensor fusion between chronic monitoring and acute injury modes.</li>
+                                <li>Implementing a Dual Working Memory system with Reinforcement Learning to personalize intervention timing while balancing real-time constraints and long-term adaptation.</li>
+                                <li>Designing an edge-only system architecture to protect privacy while maintaining responsiveness for time-sensitive caregiving scenarios.</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="record">
+                        <div>
+                            <div class="date">May 2025 - Sept 2025</div>
+                            <p>Co-first author manuscript under revision for RA-L</p>
+                        </div>
+                        <div>
+                            <h3>Part-Level Scene Understanding with LLMs</h3>
+                            <p class="place">Open-Source Research Project - <a href="https://github.com/PSGBOT/KAFNet_Pipeline" target="_blank" rel="noopener">KAFNet Pipeline</a></p>
+                            <ul>
+                                <li>Constructed a Part-Segmentation-Relation dataset by fusing Semantic-SAM for hierarchical segmentation with Gemini 2.5 for kinematic annotation.</li>
+                                <li>Designed and implemented KAF-Net, a scene graph generation model using Kinematic Affinity Fields and Multi-Channel Masks to capture spatial and functional dependencies.</li>
+                                <li>Integrated KAF-Net with Large Language Models to generate executable action sequences through dynamic graph pruning and the SayPlan framework.</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="record">
+                        <div>
+                            <div class="date">Mar 2024 - Apr 2025</div>
+                            <p>Co-authored paper submitted to IROS 2025</p>
+                        </div>
+                        <div>
+                            <h3>TeraSim: Generative Simulation for Autonomous Vehicle Safety</h3>
+                            <p class="place">MCITY Lab Research - <a href="https://arxiv.org/abs/2503.03629" target="_blank" rel="noopener">arXiv paper</a></p>
+                            <ul>
+                                <li>Engineered a co-simulation plugin integrating SUMO and CARLA to inject dynamic roadblocks, vulnerable road users, and agent misfeasance into autonomous vehicle testing loops.</li>
+                                <li>Converted and refined OpenDrive maps for high-fidelity simulation of the MCITY test environment, improving map accuracy and informing physical track enhancements.</li>
+                                <li>Research serves as the technical foundation for <a href="https://www.saferdrive.ai/" target="_blank" rel="noopener">SaferDrive.ai</a>, a startup focused on generative AI simulation for autonomous vehicle safety.</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="record">
+                        <div>
+                            <div class="date">Mar 2022 - Mar 2023</div>
+                            <p>Undergraduate research</p>
+                        </div>
+                        <div>
+                            <h3>Magnetic Wristband Gesture Recognition</h3>
+                            <p class="place">Shanghai Jiao Tong University Undergraduate Research</p>
+                            <ul>
+                                <li>Optimized hardware configuration and data processing pipelines to achieve greater than 80% accuracy in full-finger gesture classification with high noise resistance.</li>
+                                <li>Developed filtering and Euclidean-space geometric center analysis methods to isolate gesture signals and support robust classification across users and environments.</li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
-                <ul>
-                    <li>Developing a Deep Counterfactual Regret Minimization (Deep CFR) agent for 3-player No-Limit Hold'em.</li>
-                    <li>Engineered a high-throughput training pipeline with <strong>64-way parallelization</strong> and batched FP16 inference, reducing convergence time to &lt;8 hours.</li>
-                    <li>Designed an action abstraction layer to map continuous betting dynamics into discrete strategy bins.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Real-time Multiple Object Tracking on Edge</span>
-                    <span class="item-date">Sept 2025 – Dec 2025</span>
-                </div>
-                <div class="item-subtitle">Mobile Computing Course Project</div>
-                <ul>
-                    <li>Engineered a real-time tracking pipeline on Android (Pixel 7/9 Pro), utilizing on-device TPU acceleration for YOLO11 and ByteTrack.</li>
-                    <li>Implemented optical-flow-based prediction and adaptive frame dropping to ensure stable 30 FPS tracking.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Distributed Sharded Key-Value Store</span>
-                    <span class="item-date">Jan 2025 – Apr 2025</span>
-                </div>
-                <div class="item-subtitle">Distributed Systems Course Project (Go, Multi-Paxos)</div>
-                <ul>
-                    <li>Architected a scalable, Sharded Multi-Paxos storage system ensuring linearizable consistency and partition tolerance.</li>
-                    <li>Implemented a ShardMaster configuration service to dynamically rebalance shards during cluster scaling.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Impossible Distillation & LoRA Fine-Tuning</span>
-                    <span class="item-date">Sept 2024 – Dec 2024</span>
-                </div>
-                <div class="item-subtitle">ML Research Capstone</div>
-                <ul>
-                    <li>Reproduced the "Impossible Distillation" framework to generate synthetic paraphrase datasets from GPT-2.</li>
-                    <li>Integrated Low-Rank Adaptation (LoRA) with the distillation pipeline, achieving >99% parameter reduction.</li>
-                </ul>
             </div>
         </section>
 
-    </div>
+        <section class="section" id="skills">
+            <div class="inner animate-in">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Technical Skills</p>
+                        <h2>Practical tooling from model training to deployment.</h2>
+                    </div>
+                    <p>
+                        The stack reflects the CV categories: programming, AI tools, systems, hardware, methodologies, and languages.
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <section class="skill-group" aria-labelledby="skill-languages">
+                        <h3 id="skill-languages">Programming Languages</h3>
+                        <ul class="chips">
+                            <li>Python</li>
+                            <li>C/C++</li>
+                            <li>CUDA</li>
+                            <li>SQL</li>
+                            <li>R</li>
+                            <li>Go</li>
+                            <li>System Verilog</li>
+                            <li>Java</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group" aria-labelledby="skill-ai">
+                        <h3 id="skill-ai">AI &amp; Simulation Tools</h3>
+                        <ul class="chips">
+                            <li>PyTorch</li>
+                            <li>TensorFlow Lite</li>
+                            <li>Scikit-learn</li>
+                            <li>NumPy</li>
+                            <li>Pandas</li>
+                            <li>Matplotlib</li>
+                            <li>stable baselines3</li>
+                            <li>OpenCV</li>
+                            <li>CARLA</li>
+                            <li>SUMO</li>
+                            <li>MuJoCo</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group" aria-labelledby="skill-systems">
+                        <h3 id="skill-systems">Systems &amp; Hardware</h3>
+                        <ul class="chips">
+                            <li>Git</li>
+                            <li>Docker</li>
+                            <li>Linux/Unix</li>
+                            <li>Web Systems</li>
+                            <li>Databases</li>
+                            <li>RISC-V ISA</li>
+                            <li>ARM ISA</li>
+                            <li>Branch Prediction</li>
+                            <li>Superscalar CPU Pipelines</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group" aria-labelledby="skill-concepts">
+                        <h3 id="skill-concepts">Concepts &amp; Methodologies</h3>
+                        <ul class="chips">
+                            <li>Distributed Systems</li>
+                            <li>Data Mining</li>
+                            <li>Information Security</li>
+                            <li>LLM Distillation</li>
+                            <li>LLM Finetuning</li>
+                            <li>Model Quantization</li>
+                            <li>Reinforcement Learning</li>
+                            <li>Robotics Learning</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </section>
 
+        <section class="section light" id="projects">
+            <div class="inner animate-in">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Technical Projects</p>
+                        <h2>Selected builds across edge AI, language models, processors, and distributed systems.</h2>
+                    </div>
+                    <p>
+                        These are condensed from the CV so each project can be scanned quickly without losing the engineering signal.
+                    </p>
+                </div>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <span class="tagline">Mobile and Pervasive Computing Course Project</span>
+                        <h3>Real-time Multiple Object Tracking on Edge Hardware</h3>
+                        <p>Sept 2025 - Dec 2025</p>
+                        <ul>
+                            <li>Engineered a real-time tracking pipeline on Google Pixel 7/9 Pro smartphones using on-device TPU acceleration for YOLO11 and ByteTrack.</li>
+                            <li>Implemented optical-flow-based prediction, keyframe ratio optimization, and adaptive frame dropping to maintain smooth 30 FPS tracking.</li>
+                        </ul>
+                    </article>
+                    <article class="project-card">
+                        <span class="tagline">Machine Learning Research Experience Capstone</span>
+                        <h3>Impossible Distillation &amp; LoRA Fine-Tuning</h3>
+                        <p>Sept 2024 - Dec 2024</p>
+                        <ul>
+                            <li>Reproduced the Impossible Distillation framework to generate synthetic paraphrase datasets from GPT-2 with semantic and syntactic evaluation metrics.</li>
+                            <li>Integrated Low-Rank Adaptation with the distillation pipeline, reducing trainable parameters by more than 99% while slightly improving paraphrase performance.</li>
+                        </ul>
+                    </article>
+                    <article class="project-card">
+                        <span class="tagline">Computer Architecture Capstone</span>
+                        <h3>3-Way Superscalar RISC-V Processor</h3>
+                        <p>May 2025 - Aug 2025</p>
+                        <ul>
+                            <li>Designed and optimized a 3-way superscalar RISC-V processor in System Verilog with a 5-stage pipeline and hazard handling.</li>
+                            <li>Implemented an advanced TAGE branch predictor with aging useful bits, reducing misprediction rates for a 30% performance uplift over baseline predictors.</li>
+                        </ul>
+                    </article>
+                    <article class="project-card">
+                        <span class="tagline">Distributed Systems Course Project - Go, Paxos, Consensus</span>
+                        <h3>Distributed Sharded Key-Value Store Series</h3>
+                        <p>Jan 2025 - Apr 2025</p>
+                        <ul>
+                            <li>Architected a storage system evolving from Primary/Backup replication to a Sharded Multi-Paxos architecture with linearizable consistency.</li>
+                            <li>Built a ShardMaster configuration service for deterministic rebalancing with minimal data movement during cluster scaling.</li>
+                        </ul>
+                    </article>
+                    <article class="project-card">
+                        <span class="tagline">Conversational AI Course Project</span>
+                        <h3>Fake News Detection System</h3>
+                        <p>Sep 2024 - Dec 2024</p>
+                        <ul>
+                            <li>Architected a Retrieval-Augmented Generation verification system that cross-references user queries against a curated database of credible sources.</li>
+                            <li>Engineered a backend pipeline to crawl, process, and index reputable news sources for efficient semantic retrieval and real-time knowledge base updates.</li>
+                        </ul>
+                    </article>
+                    <article class="project-card">
+                        <span class="tagline">Personal Research Project</span>
+                        <h3>No-Limit Texas Hold'em AI Agent</h3>
+                        <p>Jan 2026 - Present - <a href="https://github.com/Alexcel-Harry/poker_bot" target="_blank" rel="noopener">GitHub</a></p>
+                        <ul>
+                            <li>Developed a Deep Counterfactual Regret Minimization agent for 3-player No-Limit Hold'em with separate advantage and strategy networks.</li>
+                            <li>Engineered a training pipeline with 64-way parallel environment traversals and batched FP16 inference, reducing convergence time to less than 8 hours.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>Yihao Sun - AI infrastructure, AI engineering, and applied research</span>
+            <span><a href="cv.pdf" target="_blank" rel="noopener">Download CV PDF</a></span>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+            if (!prefersReducedMotion.matches) {
+                return;
+            }
+            document.querySelectorAll("video[autoplay]").forEach(function (video) {
+                video.removeAttribute("autoplay");
+                video.pause();
+            });
+        }());
+    </script>
 </body>
 </html>
