@@ -284,7 +284,7 @@
 
         .hero-facts {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 12px;
             max-width: 980px;
         }
@@ -615,7 +615,7 @@
         }
 
         .project-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         .project-card {
@@ -631,13 +631,11 @@
             background: var(--teal);
         }
 
-        .project-card:nth-child(2)::before,
-        .project-card:nth-child(5)::before {
+        .project-card:nth-child(3n + 2)::before {
             background: var(--coral);
         }
 
-        .project-card:nth-child(3)::before,
-        .project-card:nth-child(6)::before {
+        .project-card:nth-child(3n)::before {
             background: var(--violet);
         }
 
@@ -862,11 +860,11 @@
         <video class="hero-video" src="src/agent_A_v26_demo.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
         <div class="hero-inner">
             <div class="animate-in">
-                <p class="eyebrow">AI Infrastructure / AI Engineering Internship Candidate</p>
+                <p class="eyebrow">Machine Learning Systems / Robotics / AI Infrastructure</p>
                 <h1>Yihao Sun</h1>
                 <p class="lead">
                     Graduate student at Carnegie Mellon University building end-to-end AI systems across edge deployment,
-                    simulation platforms, robotics learning, and performance-critical training pipelines.
+                    simulation platforms, robotics learning, document understanding, and performance-critical training pipelines.
                 </p>
                 <div class="hero-actions" aria-label="Primary actions">
                     <a class="button primary" href="cv.pdf" target="_blank" rel="noopener">Open CV PDF</a>
@@ -881,16 +879,12 @@
                     <span>MS in Mobile &amp; Internet of Things Engineering, anticipated May 2027</span>
                 </div>
                 <div class="fact">
-                    <strong>Availability</strong>
-                    <span>May 2026 - August 2026 for AI infrastructure, AI engineering, or applied research</span>
+                    <strong>Accepted Papers</strong>
+                    <span>KAF-Net at IDETC/CIE 2026; TeraSim at the SAD Workshop, CVPR 2026</span>
                 </div>
                 <div class="fact">
-                    <strong>Research Focus</strong>
-                    <span>Edge VLMs, generative simulation, scene graphs, reinforcement learning</span>
-                </div>
-                <div class="fact">
-                    <strong>Systems Stack</strong>
-                    <span>Python, C/C++, CUDA, Go, Docker, Linux, MuJoCo, CARLA, SUMO</span>
+                    <strong>Recent Builds</strong>
+                    <span>Humanoid backflip RL, RetFormer document QA, distributed Mamba-2 optimization</span>
                 </div>
             </div>
 
@@ -912,9 +906,9 @@
                         <p class="eyebrow">Profile</p>
                         <h2>Machine learning depth with systems instincts.</h2>
                     </div>
-                    <p>
+                    <!-- <p>
                         The page below keeps the CV facts intact while giving the robotics and simulation work room to move.
-                    </p>
+                    </p> -->
                 </div>
                 <div class="profile-grid">
                     <article class="profile-panel">
@@ -923,12 +917,8 @@
                             Experienced in building, integrating, and evaluating end-to-end AI systems under real-world constraints,
                             including edge deployment, simulation platforms, and performance-critical training pipelines.
                         </p>
-                        <p>
-                            Seeking an AI infrastructure, AI engineering, or applied research internship focused on scalable and
-                            reliable AI systems.
-                        </p>
                     </article>
-                    <aside class="info-panel" aria-label="Current recruiting details">
+                    <aside class="info-panel" aria-label="Profile details">
                         <dl class="info-list">
                             <div>
                                 <dt>Current degree</dt>
@@ -1035,11 +1025,11 @@
                 <div class="section-head">
                     <div>
                         <p class="eyebrow">Research &amp; Publications</p>
-                        <h2>From privacy-first wearables to generative simulation.</h2>
+                        <h2>Accepted work in robotics and generative simulation.</h2>
                     </div>
-                    <p>
-                        Research entries follow the CV, with publication status stated exactly at the level currently provided there.
-                    </p>
+                    <!-- <p>
+                        Updated CV venue information now highlights KAF-Net at IDETC/CIE 2026 and TeraSim at the SAD Workshop at CVPR 2026.
+                    </p> -->
                 </div>
                 <div class="timeline">
                     <article class="record">
@@ -1060,11 +1050,11 @@
                     <article class="record">
                         <div>
                             <div class="date">May 2025 - Sept 2025</div>
-                            <p>Co-first author manuscript under revision for RA-L</p>
+                            <p>IDETC/CIE 2026; co-first author manuscript</p>
                         </div>
                         <div>
                             <h3>Part-Level Scene Understanding with LLMs</h3>
-                            <p class="place">Open-Source Research Project - <a href="https://github.com/PSGBOT/KAFNet_Pipeline" target="_blank" rel="noopener">KAFNet Pipeline</a></p>
+                            <p class="place">Open-Source Research Project - <a href="https://github.com/PSGBOT/KAFNet_Pipeline" target="_blank" rel="noopener">KAFNet Pipeline</a> - IDETC/CIE 2026</p>
                             <ul>
                                 <li>Constructed a Part-Segmentation-Relation dataset by fusing Semantic-SAM for hierarchical segmentation with Gemini 2.5 for kinematic annotation.</li>
                                 <li>Designed and implemented KAF-Net, a scene graph generation model using Kinematic Affinity Fields and Multi-Channel Masks to capture spatial and functional dependencies.</li>
@@ -1075,11 +1065,11 @@
                     <article class="record">
                         <div>
                             <div class="date">Mar 2024 - Apr 2025</div>
-                            <p>Co-authored paper submitted to IROS 2025</p>
+                            <p>SAD Workshop at CVPR 2026; co-authored paper</p>
                         </div>
                         <div>
                             <h3>TeraSim: Generative Simulation for Autonomous Vehicle Safety</h3>
-                            <p class="place">MCITY Lab Research - <a href="https://arxiv.org/abs/2503.03629" target="_blank" rel="noopener">arXiv paper</a></p>
+                            <p class="place">MCITY Lab Research - <a href="https://arxiv.org/abs/2503.03629" target="_blank" rel="noopener">arXiv paper</a> - SAD Workshop at CVPR 2026</p>
                             <ul>
                                 <li>Engineered a co-simulation plugin integrating SUMO and CARLA to inject dynamic roadblocks, vulnerable road users, and agent misfeasance into autonomous vehicle testing loops.</li>
                                 <li>Converted and refined OpenDrive maps for high-fidelity simulation of the MCITY test environment, improving map accuracy and informing physical track enhancements.</li>
@@ -1171,6 +1161,7 @@
                             <li>Model Quantization</li>
                             <li>Reinforcement Learning</li>
                             <li>Robotics Learning</li>
+                            <li>AI Infrastructure</li>
                         </ul>
                     </section>
                 </div>
@@ -1182,13 +1173,40 @@
                 <div class="section-head">
                     <div>
                         <p class="eyebrow">Technical Projects</p>
-                        <h2>Selected builds across edge AI, language models, processors, and distributed systems.</h2>
+                        <h2>Recent builds across robotics learning, document AI, language-model systems, and distributed systems.</h2>
                     </div>
-                    <p>
-                        These are condensed from the CV so each project can be scanned quickly without losing the engineering signal.
-                    </p>
+                    <!-- <p>
+                        New 2026 projects are surfaced first, followed by earlier implementation work from the updated CV.
+                    </p> -->
                 </div>
                 <div class="project-grid">
+                    <article class="project-card">
+                        <span class="tagline">Robotics Learning Course Project</span>
+                        <h3>Humanoid Robot Backflip via Reinforcement Learning</h3>
+                        <p>Jan 2026 - May 2026</p>
+                        <ul>
+                            <li>Developed a multi-stage PPO training pipeline in MuJoCo Humanoid-v5, decomposing the backflip into sequential skills to avoid local optima.</li>
+                            <li>Transferred pretrained high-jump policy weights into the backflip policy and used a gravity curriculum from 0.3g to 1.0g to explore rotational behavior.</li>
+                        </ul>
+                    </article>
+                    <article class="project-card">
+                        <span class="tagline">Generative AI Course Project</span>
+                        <h3>RetFormer: Retrieval-Augmented Document Understanding</h3>
+                        <p>Jan 2026 - May 2026</p>
+                        <ul>
+                            <li>Designed RetFormer, a 23M-parameter learnable bridge between a frozen ColQwen2 retriever and frozen Qwen-VL reader for scalable multi-page document QA.</li>
+                            <li>Achieved Pareto-dominant performance over Top-1 raw page retrieval on MMLongBench-Doc while using less than half the median reader token cost.</li>
+                        </ul>
+                    </article>
+                    <article class="project-card">
+                        <span class="tagline">Large Language Model Systems Course Project</span>
+                        <h3>Parallelism and Optimizations for Mamba-2 Models</h3>
+                        <p>Jan 2026 - May 2026</p>
+                        <ul>
+                            <li>Designed a distributed parallelism framework for Mamba-2's Structured State Space Duality algorithm using tensor parallelism and sequence parallelism.</li>
+                            <li>Contributed to a system that reduced per-GPU memory from 31.3 GB to 1.1 GB and extended maximum sequence length from 16K to 262K tokens.</li>
+                        </ul>
+                    </article>
                     <article class="project-card">
                         <span class="tagline">Mobile and Pervasive Computing Course Project</span>
                         <h3>Real-time Multiple Object Tracking on Edge Hardware</h3>
@@ -1250,7 +1268,7 @@
 
     <footer class="footer">
         <div class="footer-inner">
-            <span>Yihao Sun - AI infrastructure, AI engineering, and applied research</span>
+            <span>Yihao Sun - AI systems, robotics learning, document understanding, and simulation</span>
             <span><a href="cv.pdf" target="_blank" rel="noopener">Download CV PDF</a></span>
         </div>
     </footer>
